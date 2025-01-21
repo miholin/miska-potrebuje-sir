@@ -1,16 +1,10 @@
+/* Ozadje strani – ostane neokrnjeno */
 html, body {
   margin: 0;
   padding: 0;
-  /* Če želiš onemogočiti scroll v primeru majhnega okna, da se 
-     vse “scale-a” in ne pojavi scrollbar, daj: */
-  overflow: hidden; 
-
-  /* TUKAJ VSTAVIŠ SVOJE OZADJE:
-     - recimo polna slika, ki se razteza čez ves ekran 
-  */
-  background: url("Slike/myBackground.jpg") no-repeat center center;
-  background-size: cover;
-
+  overflow: hidden;
+  background: url("Slike/background.jpg") no-repeat !important;
+  background-size: cover !important;
   font-family: sans-serif;
 }
 
@@ -19,8 +13,7 @@ html, body {
   position: absolute;
   width: 1050px;
   height: 800px;
-  transform-origin: top left; 
-  /* transform: scale(...) bo JS */
+  transform-origin: top left;
 }
 
 /* Labirint (800×800) */
@@ -30,48 +23,79 @@ html, body {
   top: 0;
   width: 800px;
   height: 800px;
-
   background: #fff;
 }
 
-/* Sidebar (250×800) */
+/* Sidebar (250×800) – postavimo relative za lažje pozicioniranje elementov znotraj */
 #sidebar {
   position: absolute;
-  left: 800px; /* Tik desno od labirinta */
+  left: 800px;
   top: 0;
   width: 250px;
   height: 800px;
-
   background: #eee;
+  color: #000;
   border: 2px solid #000;
   box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-
-  /* Malo “paddinga” znotraj plošče */
   padding: 20px;
   box-sizing: border-box;
+  position: relative; /* za absolute elemente znotraj */
 }
 
+/* Stil nadzorne plošče v dark mode (samo sidebar) */
+#sidebar.dark-mode {
+  background: #222;
+  color: #fff;
+  border-color: #444;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
+}
+
+/* Gumb za preklop dark/light mode – centriran na dnu sidebarja */
+#dark-toggle {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 10px;  /* manjši padding, da ni prevelik */
+  font-size: 16px;    /* lahko prilagodiš glede na željo */
+  background: #ffd700;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  width: 90%;
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* Po želji, če je dark mode aktiven, lahko prilagodiš stil gumba */
+.darkmode--activated #dark-toggle {
+  background: #444;
+}
+
+
+/* Ostali stili */
 #maze-svg {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: block;
 }
 
-/* Miška, sir */
 .player {
   position: absolute;
   width: 24px;
   height: 24px;
 }
+
 .goal {
   position: absolute;
   width: 32px;
   height: 32px;
 }
 
-/* Timer, gumbi, itd. */
 #timer {
   font-size: 18px;
   font-weight: bold;
@@ -89,6 +113,7 @@ button {
   font-weight: bold;
   cursor: pointer;
 }
+
 button:hover {
   background: #ffc107;
 }
