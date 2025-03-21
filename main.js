@@ -254,10 +254,8 @@ function scaleToFit() {
       Swal.fire({
         title: 'Vizitka',
         html: `
-            <p><strong>Janez Novak</strong></p>
-            <p>Programer / Razvijalec</p>
-            <p>Email: janez.novak@example.com</p>
-            <p>Kontakt: +386 40 123 456</p>
+            <p><strong>Miha Sever</strong></p>
+            <p>4.RB, ERŠ Nova Gorica</p>
         `,
         icon: 'info',
         confirmButtonText: 'Zapri',
