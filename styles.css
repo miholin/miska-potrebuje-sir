@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: linear-gradient(to right, #ffeb99, #ffc966);
+  background: url("Slike/background.jpg") no-repeat !important;
   background-size: cover !important;
   font-family: sans-serif;
 }
